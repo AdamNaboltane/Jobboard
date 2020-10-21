@@ -1,5 +1,9 @@
 # jobboard-API
 
+This is a job board style website build with Angular and Flask. Users can login using an existing account and applyt to job offers or apply without an existing profile. Companies can post mutliple job ads, and get contact about users who applied. 
+
+# App installation 
+
 You may need to install pipenv
 
 `$ pip install pipenv`
