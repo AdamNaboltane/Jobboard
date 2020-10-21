@@ -1,0 +1,28 @@
+<div class="jobList-wrapper">
+  <div class="jobList-container">
+    <div fxLayout="row wrap" fxLayout.lt-md="column" *ngIf="jobList; else jobListLoader">
+      <div class="card-wrapper" fxFlex="50" *ngFor="let item of jobList | slice:sliceStart:sliceEnd">
+        <mat-card>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-card-content>
+            <p>{{item.desc | truncate:250}}</p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <app-job-apply-overlay [jobId]="item.id"></app-job-apply-overlay>
+            <a mat-raised-button color="primary" [routerLink]="['/job', item.id]">Learn more</a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <ng-template #jobListLoader>
+      <div class="spinner-wrapper">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+  </div>
+  <div class="jobList-paginator">
+    <mat-paginator fxFlex="1 0 100" [length]="jobList ? jobList.length : 0" [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 100]" align="start">
+    </mat-paginator>
+  </div>
+</div>

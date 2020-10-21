@@ -1,0 +1,31 @@
+<div class="learnMore-wrapper">
+  <div class="job-section" *ngIf="jobInfos; else jobInfosLoader">
+    <div class="job-header">
+      <h1>{{jobInfos.title}}</h1>
+      <span>{{companyInfos?.name || ''}}</span>
+    </div>
+    <mat-card class="job-content">
+      <p>{{jobInfos.desc}}</p>
+      <mat-card-footer class="job-footer" fxLayout="row" fxLayout.lt-sm="column">
+        <div fxFlex="33" fxLayout="column" fxLayout.lt-sm="row" fxLayoutAlign="center center"
+          fxLayoutAlign.lt-sm="space-between center">
+          <h3>Wage</h3>
+          <p>{{jobInfos.wage}}€</p>
+        </div>
+        <div fxFlex="33" fxLayout="column" fxLayout.lt-sm="row" fxLayoutAlign="center center"
+          fxLayoutAlign.lt-sm="space-between center">
+          <h3>Work place</h3>
+          <p>{{jobInfos.place}}</p>
+        </div>
+        <div fxFlex="33" fxLayout="column" fxLayout.lt-sm="row" fxLayoutAlign="center center"
+          fxLayoutAlign.lt-sm="space-between center">
+          <h3>Work time</h3>
+          <p>{{jobInfos.work_time}}</p>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+  <ng-template #jobInfosLoader>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

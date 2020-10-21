@@ -1,0 +1,44 @@
+<div class="profile-wrapper mat-elevation-z6">
+  <h1>Your profile</h1>
+  <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Ex. mrodrigue@outlook.com">
+      <mat-error *ngIf="profileForm.get('email').hasError('email') && !profileForm.get('email').hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="profileForm.get('email').hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="Your password">
+      <mat-hint>Leave empty if you don't want to change it</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" placeholder="Michel">
+      <mat-error *ngIf="profileForm.get('firstName').hasError('required')">
+        First name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Rodrigue">
+      <mat-error *ngIf="profileForm.get('lastName').hasError('required')">
+        Last name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone (optional)</mat-label>
+      <input matInput formControlName="phone" placeholder="06 12 34 56 78" mask="00 00 00 00 00">
+    </mat-form-field>
+    <mat-error *ngIf="invalidUpdate">
+      Invalid informations!
+    </mat-error>
+    <div class="button-wrapper">
+      <button mat-flat-button [disabled]="profileForm.invalid" color="primary">Update my profile</button>
+    </div>
+  </form>
+</div>

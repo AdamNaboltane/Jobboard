@@ -1,0 +1,28 @@
+:host {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: 300px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    .profile-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}

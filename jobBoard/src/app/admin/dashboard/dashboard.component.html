@@ -1,0 +1,18 @@
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" opened>
+    <mat-action-list>
+      <button mat-list-item (click)="viewId = 0">Users</button>
+      <button mat-list-item (click)="viewId = 1">Ads</button>
+      <button mat-list-item (click)="viewId = 2">Applications</button>
+      <button mat-list-item (click)="viewId = 3">Companies</button>
+    </mat-action-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div [ngSwitch]="viewId">
+      <app-users *ngSwitchCase="0"></app-users>
+      <app-ads *ngSwitchCase="1"></app-ads>
+      <app-applications *ngSwitchCase="2"></app-applications>
+      <app-companies *ngSwitchCase="3"></app-companies>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

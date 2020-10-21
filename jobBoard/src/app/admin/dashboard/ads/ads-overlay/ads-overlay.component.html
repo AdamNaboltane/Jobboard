@@ -1,0 +1,44 @@
+<div class="overlay-wrapper">
+  <div class="overlay-title">
+    <h2>Create a new ad</h2>
+    <span (click)="closeOverlay()">&times;</span>
+  </div>
+  <form class="overlay-form" [formGroup]="overlayForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <mat-label>Company ID</mat-label>
+      <input type="number" matInput formControlName="id_company">
+      <mat-error *ngIf="overlayForm.get('id_company').hasError('required')">
+        Company ID is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="overlayForm.get('title').hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea cdkTextareaAutosize matInput formControlName="desc"></textarea>
+      <mat-error *ngIf="overlayForm.get('desc').hasError('required')">
+        Description is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Place</mat-label>
+      <input matInput formControlName="place">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Wage</mat-label>
+      <input matInput formControlName="wage">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Work time</mat-label>
+      <input matInput formControlName="work_time">
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-flat-button [disabled]="overlayForm.invalid" color="primary">Create</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="login-wrapper mat-elevation-z6">
+  <mat-tab-group mat-stretch-tabs [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+    <mat-tab label="Login">
+      <app-login-form></app-login-form>
+    </mat-tab>
+    <mat-tab label="Register">
+      <app-register-form (changeTab)="switchTab()"></app-register-form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

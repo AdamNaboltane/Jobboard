@@ -1,0 +1,54 @@
+table {
+  width: 100%;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.add-button {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+}
+@mixin mat-table-columns($columns) {
+  .mat-column- {
+    @each $colName, $props in $columns {
+      $width: map-get($props, "width");
+
+      &#{$colName} {
+        flex: $width;
+        min-width: $width;
+
+        @if map-has-key($props, "color") {
+          color: map-get($props, "color");
+        }
+      }
+    }
+  }
+}
+
+@include mat-table-columns(
+  (
+    id: (
+      width: 5rem,
+    ),
+    id_company: (
+      width: 5rem,
+    ),
+    title: (
+      width: 5rem,
+    ),
+    place: (
+      width: 5rem,
+    ),
+    wage: (
+      width: 5rem,
+    ),
+    work_time: (
+      width: 5rem,
+    ),
+    edit: (
+      width: 5rem,
+    ),
+  )
+);

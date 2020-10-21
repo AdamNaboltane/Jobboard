@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <mat-toolbar color="primary" class="mat-elevation-z6">
+    <a mat-button routerLink="/">
+      <span>Job Board</span>
+    </a>
+    <a mat-button routerLink="/">
+      <mat-icon aria-hidden="false" aria-label="Home">home</mat-icon>
+    </a>
+    <a mat-button *ngIf="auth.isAdmin" routerLink="/admin">
+      Admin dahsboard
+    </a>
+    <div class="separator"></div>
+    <div *ngIf="auth.isAuthenticated; else notAuthenticated">
+      <a mat-button routerLink="/profile">
+        <mat-icon aria-hidden="false" aria-label="Profile">person</mat-icon>
+        <span>Profile</span>
+      </a>
+      <a mat-button routerLink="/logout">
+        <mat-icon aria-hidden="false" aria-label="Logout">logout</mat-icon>
+        <span>Logout</span>
+      </a>
+    </div>
+    <ng-template #notAuthenticated>
+      <a mat-button routerLink="/login">
+        <mat-icon aria-hidden="false" aria-label="login">login</mat-icon>
+        <span>Login / Register</span>
+      </a>
+    </ng-template>
+  </mat-toolbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

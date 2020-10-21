@@ -1,0 +1,42 @@
+<div class="overlay-wrapper">
+  <div class="overlay-title">
+    <h2>Create a new company</h2>
+    <span (click)="closeOverlay()">&times;</span>
+  </div>
+  <form class="overlay-form" [formGroup]="overlayForm" (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="overlayForm.get('name').hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Domain</mat-label>
+      <input matInput formControlName="domain">
+      <mat-error *ngIf="overlayForm.get('domain').hasError('required')">
+        Domain is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Ex. mrodrigue@outlook.com">
+      <mat-error *ngIf="overlayForm.get('email').hasError('email') && !overlayForm.get('email').hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="overlayForm.get('email').hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone (optional)</mat-label>
+      <input matInput formControlName="phone" placeholder="06 12 34 56 78" mask="00 00 00 00 00">
+      <mat-error *ngIf="overlayForm.get('phone').hasError('required')">
+        Phone is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="button-wrapper">
+      <button mat-flat-button [disabled]="overlayForm.invalid" color="primary">Create</button>
+    </div>
+  </form>
+</div>

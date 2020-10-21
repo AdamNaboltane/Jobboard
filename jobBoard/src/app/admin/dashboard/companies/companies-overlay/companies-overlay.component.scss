@@ -1,0 +1,43 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  min-width: 300px;
+  .overlay-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    .overlay-title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      span {
+        cursor: pointer;
+      }
+    }
+    .overlay-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      div {
+        width: 100%;
+        display: flex;
+        mat-form-field {
+          flex: 1;
+          padding: 5px;
+          width: 100%;
+        }
+        &.button-wrapper {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
